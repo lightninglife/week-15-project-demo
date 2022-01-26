@@ -1,0 +1,36 @@
+1 Install Minikube Kubernetes on CentOS 8/7 with KVM
+https://computingforgeeks.com/how-to-install-minikube-on-centos-linux-with-kvm/
+
+2 Run following command line in the current directory
+Kubectl apply -f deploy.yaml
+
+Here we create container using deploy.yaml file. We can also create the image using Docker and deploy docker image using Kubectl as what it is shown in the blog below
+https://www.bluematador.com/blog/building-and-deploying-to-kubernetes
+
+
+3 To gain access to pod, we need to run following command line (This is a bit like gaining access to EC2 instance in terms of AWS)
+kubectl exec --stdin --tty <name of the pod> -- sh
+
+
+Notes: To find the name of the pod, run command line below
+kubectl get pods
+
+https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/
+
+
+Kubectl command lines you should know:
+
+kubectl get all - Get all kubectl information under the default workspace
+kubectl get pods - Get all pods information under the default workspace
+kubectl get deployments - Get all deployments information under default workspace
+kubectl get services - Get all services information under default workspace
+
+Notes: To troubleshoot using kubectl, we use describe not log
+
+kubectl describe pod <name of the pod> - This is most commonly used way to troubleshoot issues facing a pod
+
+Or
+
+You may gain access into the pod to check out the issues
+kubectl exec --stdin --tty <name of the pod> -- sh
+
